@@ -10,10 +10,12 @@ function sumMultiplesOfXAndYBelowZ(x, y, z) {
     + sumMultiplesOfXBelowY(y, z) 
     - sumMultiplesOfXBelowY(x * y, z);
 }
+
 function sumMultiplesOfXBelowY(x, y) {
   const upperBound = Math.floor(y / x) - (y % x === 0 ? 1 : 0);
   return x * sumNaturalNumbersToN(upperBound);
 }
+
 function sumNaturalNumbersToN(n) {
   return n * (n + 1) / 2;
 }
