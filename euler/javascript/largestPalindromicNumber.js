@@ -29,6 +29,7 @@ const removeLeadingDigit = num => {
   return num - (leadingDigit * (10 ** powerOfTen));
 }
 
+// this function does not work for numbers with zeroes inside of them :/ 
 const isNumberPalindrome = num => {
   let testNumber = num * (num < 0 ? -1 : 1);
   while (testNumber > 0) {
@@ -43,5 +44,19 @@ const isNumberPalindrome = num => {
   return true;
 }
 
+function getLargestPalindromicProductUnderX(x) {
+  let largestPalindrome = 0;
+  for (let i = x; i > 0; i -= 1) {
+    for (let j = x; j > 0; j -= 1) {
+      const product = i * j;
+      if (product <= largestPalindrome) break;
+      if (reversePositiveInteger(product) === product) {
+        largestPalindrome = product
+      };
+    }
+  }
+  return largestPalindrome;
+}
+console.log('largest palindrome:', largestPalindrome);
 
 
