@@ -46,8 +46,8 @@ const isNumberPalindrome = num => {
 
 function getLargestPalindromicProductUnderX(x) {
   let largestPalindrome = 0;
-  for (let i = x; i > 0; i -= 1) {
-    for (let j = x; j > 0; j -= 1) {
+  for (let i = x; i >= 100; i -= 1) {
+    for (let j = x; j >= i; j -= 1) {
       const product = i * j;
       if (product <= largestPalindrome) break;
       if (reversePositiveInteger(product) === product) {
@@ -57,6 +57,6 @@ function getLargestPalindromicProductUnderX(x) {
   }
   return largestPalindrome;
 }
-console.log('largest palindrome:', largestPalindrome);
+console.log('answer:', getLargestPalindromicProductUnderX(999));
 
 
